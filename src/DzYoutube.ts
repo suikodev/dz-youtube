@@ -3,24 +3,24 @@ import { html, css, LitElement, property } from 'lit-element';
 export class DzYoutube extends LitElement {
   static styles = css`
     :host {
-      display: block;
-      padding: 25px;
-      color: var(--dz-youtube-text-color, #000);
+      justify-content: center;
+      display: flex;
+      width: 100vw;
+    }
+
+    iframe {
+      width: 80vw;
+      height: 45vw;
     }
   `;
 
-  @property({ type: String }) title = 'Hey there';
-
-  @property({ type: Number }) counter = 5;
-
-  __increment() {
-    this.counter += 1;
-  }
+  @property({ type: String }) src = "https://www.youtube.com/embed/DXUAyRRkI6k";
 
   render() {
     return html`
-      <h2>${this.title} Nr. ${this.counter}!</h2>
-      <button @click=${this.__increment}>increment</button>
+      <div>
+        <iframe title="youtubeVideo" src=${this.src} frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
     `;
   }
 }
