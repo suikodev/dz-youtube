@@ -3,30 +3,24 @@
   "tags": [
     {
       "name": "dz-youtube",
-      "description": "A component with a title and an action counter",
+      "description": "A component to upload and display youtube video",
       "properties": [
         {
-          "name": "title",
+          "name": "src",
           "type": "String",
-          "description": "The title of your component",
-          "default": "Hey there"
+          "description": "the video source",
+          "default": "https://youtube.com/embed/ByH9LuSILxU"
         },
         {
-          "name": "counter",
-          "type": "Number",
-          "description": "An action counter",
-          "default": 0
+          "name": "clientId",
+          "type": "String",
+          "description": "your client id",
+          "default": "828207170600-nkmsj6m9nl6meo8qtfodp26v8hb1v3fn.apps.googleusercontent.com"
         }
       ],
       "events": [],
       "slots": [],
-      "cssProperties": [
-        {
-          "name": "--dz-youtube-text-color",
-          "description": "Main Text Color",
-          "type": "Color"
-        }
-      ]
+      "cssProperties": []
     }
   ]
 }
