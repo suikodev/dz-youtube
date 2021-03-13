@@ -5,25 +5,14 @@
   <style>
     body {
       background: #fafafa;
+      margin: 0;
+      padding: 0;
     }
   </style>
 </head>
 <body>
-  <div id="demo"></div>
-
-  <script type="module">
-    import { html, render } from 'lit-html';
-    import '../dist/dz-youtube.js';
-
-    const title = 'Hello owc World!';
-    render(
-      html`
-        <dz-youtube .title=${title}>
-          some more light-dom
-        </dz-youtube>
-      `,
-      document.querySelector('#demo')
-    );
+  <dz-youtube src="https://youtube.com/embed/ByH9LuSILxU" clientId="828207170600-nkmsj6m9nl6meo8qtfodp26v8hb1v3fn.apps.googleusercontent.com"></dz-youtube>
+  <script type="module" src="../dist/dz-youtube.js">
   </script>
 </body>
 </html>
