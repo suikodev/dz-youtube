@@ -5,9 +5,8 @@ export default {
   title: 'DzYoutube',
   component: 'dz-youtube',
   argTypes: {
-    title: { control: 'text' },
-    counter: { control: 'number' },
-    textColor: { control: 'color' },
+    src: { control: 'text' },
+    clientId: { control: 'text' },
   },
 };
 
@@ -18,43 +17,26 @@ interface Story<T> {
 }
 
 interface ArgTypes {
-  title?: string;
-  counter?: number;
-  textColor?: string;
-  slot?: TemplateResult;
+  src: string;
+  clientId: string;
 }
 
 const Template: Story<ArgTypes> = ({
-  title = 'Hello world',
-  counter = 5,
-  textColor,
-  slot,
+  src = 'https://youtube.com/embed/ByH9LuSILxU',
+  clientId = '828207170600-nkmsj6m9nl6meo8qtfodp26v8hb1v3fn.apps.googleusercontent.com',
 }: ArgTypes) => html`
-  <dz-youtube
-    style="--dz-youtube-text-color: ${textColor || 'black'}"
-    .title=${title}
-    .counter=${counter}
-  >
-    ${slot}
-  </dz-youtube>
+  <dz-youtube .src=${src} .clientId=${clientId}> </dz-youtube>
 `;
 
 export const Regular = Template.bind({});
 
-export const CustomTitle = Template.bind({});
-CustomTitle.args = {
-  title: 'My title',
+export const CustomSrc = Template.bind({});
+CustomSrc.args = {
+  src: 'https://youtube.com/embed/ByH9LuSILxU',
 };
 
-export const CustomCounter = Template.bind({});
-CustomCounter.args = {
-  counter: 123456,
-};
-
-export const SlottedContent = Template.bind({});
-SlottedContent.args = {
-  slot: html`<p>Slotted content</p>`,
-};
-SlottedContent.argTypes = {
-  slot: { table: { disable: true } },
+export const CustomClientId = Template.bind({});
+CustomClientId.args = {
+  clientId:
+    '828207170600-nkmsj6m9nl6meo8qtfodp26v8hb1v3fn.apps.googleusercontent.com',
 };
