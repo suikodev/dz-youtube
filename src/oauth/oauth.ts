@@ -1,17 +1,14 @@
 export class OAuth {
   constructor(clientId: string) {
-    [this.redirectUrl] = document.URL;
     this.clientId = clientId;
     this.accessToken = window.location.href
       .split('#access_token=')[1]
       ?.split('&')[0];
   }
 
-  private redirectUrl: string;
-
   private clientId: string;
 
-  private accessToken: string | undefined;
+  public accessToken: string | undefined;
 
   public oauthSignIn() {
     const oauth2Endpoint = 'https://accounts.google.com/o/oauth2/v2/auth';
@@ -21,7 +18,7 @@ export class OAuth {
 
     const params: Record<string, string> = {
       client_id: this.clientId,
-      redirect_uri: this.redirectUrl,
+      redirect_uri: document.URL,
       response_type: 'token',
       scope: 'https://www.googleapis.com/auth/youtube.force-ssl',
       include_granted_scopes: 'true',
