@@ -2,7 +2,7 @@ export class OAuth {
   constructor(clientId: string) {
     this.clientId = clientId;
     this.accessToken = window.location.href
-      .split('#access_token=')[1]
+      .split('access_token=')[1]
       ?.split('&')[0];
   }
 
