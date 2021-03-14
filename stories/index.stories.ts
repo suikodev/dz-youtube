@@ -28,7 +28,7 @@ const Template: Story<ArgTypes> = ({
   clientId = '828207170600-nkmsj6m9nl6meo8qtfodp26v8hb1v3fn.apps.googleusercontent.com',
   clientSecret = 'Ggemny64kU0a9GgLL7KYRkfn',
 }: ArgTypes) => html`
-  <dz-youtube .src=${src} .client-id=${clientId} .clientSecret=${clientSecret}>
+  <dz-youtube src=${src} client-id=${clientId} client-secret=${clientSecret}>
   </dz-youtube>
 `;
 
