@@ -16,6 +16,11 @@
           "type": "String",
           "description": "your client id",
           "default": "828207170600-nkmsj6m9nl6meo8qtfodp26v8hb1v3fn.apps.googleusercontent.com"
+        },
+        {
+          "name": "clientSecret",
+          "type": "String",
+          "description": "your client secret"
         }
       ],
       "events": [],
