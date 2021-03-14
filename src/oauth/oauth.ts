@@ -18,7 +18,7 @@ export class OAuth {
 
     const params: Record<string, string> = {
       client_id: this.clientId,
-      redirect_uri: document.URL,
+      redirect_uri: document.URL.split('#')[0],
       response_type: 'token',
       scope: 'https://www.googleapis.com/auth/youtube.force-ssl',
       include_granted_scopes: 'true',
