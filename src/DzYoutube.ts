@@ -3,6 +3,15 @@ import { html, css, LitElement, property } from 'lit-element';
 import { OAuth } from './oauth';
 
 export class DzYoutube extends LitElement {
+  /**
+   *
+   */
+  constructor() {
+    super();
+    this.handleUploadButtonClick = this.handleUploadButtonClick.bind(this);
+    this.handleFileSelected = this.handleFileSelected.bind(this);
+  }
+
   static styles = css`
     :host {
       justify-content: center;
@@ -95,7 +104,6 @@ export class DzYoutube extends LitElement {
       this.categoryId =
         (<HTMLInputElement>this.shadowRoot?.getElementById('video-category'))
           .valueAsNumber || 0;
-      console.log(this.title, this.description, this.categoryId);
       if (!this.title || !this.description || !this.categoryId) {
         alert('please fill all field.');
         return;
@@ -117,7 +125,6 @@ export class DzYoutube extends LitElement {
       categoryId: this.categoryId,
     };
 
-    let uploadLocation = '';
     window
       .fetch(
         `https://youtube.googleapis.com/upload/youtube/v3/videos?part=snippet&key=${this.clientSecret}&uploadType=resumable`,
@@ -130,7 +137,7 @@ export class DzYoutube extends LitElement {
         }
       )
       .then(resp => {
-        uploadLocation = resp.headers.get('location') || '';
+        const uploadLocation = resp.headers.get('location') || '';
         window
           .fetch(uploadLocation, {
             headers: {
