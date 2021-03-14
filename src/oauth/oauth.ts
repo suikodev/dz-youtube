@@ -1,23 +1,16 @@
 export class OAuth {
-  constructor(clientId: string) {
-    this.clientId = clientId;
-    this.accessToken = window.location.href
-      .split('access_token=')[1]
-      ?.split('&')[0];
+  public static getAccessToken() {
+    return window.location.href.split('access_token=')[1]?.split('&')[0];
   }
 
-  private clientId: string;
-
-  public accessToken: string | undefined;
-
-  public oauthSignIn() {
+  public static oauthSignIn(clientId: string) {
     const oauth2Endpoint = 'https://accounts.google.com/o/oauth2/v2/auth';
     const form = document.createElement('form');
     form.setAttribute('method', 'GET');
     form.setAttribute('action', oauth2Endpoint);
 
     const params: Record<string, string> = {
-      client_id: this.clientId,
+      client_id: clientId,
       redirect_uri: document.URL.split('#')[0],
       response_type: 'token',
       scope: 'https://www.googleapis.com/auth/youtube.force-ssl',
